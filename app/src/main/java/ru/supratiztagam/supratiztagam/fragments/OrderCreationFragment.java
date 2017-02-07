@@ -74,8 +74,8 @@ public class OrderCreationFragment extends Fragment {
 
         //TabItemBuilder
         TabItemBuilder tabItemBuilder = new TabItemBuilder(getActivity()).create()
-                .setDefaultIcon(android.R.drawable.ic_menu_send)
-                .setText("Уля ля")
+                .setDefaultIcon(R.mipmap.powar2)
+                .setText("***")
                 .setSelectedColor(testColors[0])
                 .setTag("A")
                 .build();
@@ -83,14 +83,14 @@ public class OrderCreationFragment extends Fragment {
         //Controller
         controller = pagerBottomTabLayout.builder()
                 .addTabItem(tabItemBuilder)
-                .addTabItem(android.R.drawable.ic_menu_compass, "Уля ля",testColors[1])
-                .addTabItem(android.R.drawable.ic_menu_search, "Уля ля",testColors[2])
-                .addTabItem(android.R.drawable.ic_menu_help, "Уля ля",testColors[3])
-                .addTabItem(android.R.drawable.ic_menu_help, "Уля ля",testColors[4])
-                .addTabItem(android.R.drawable.ic_menu_help, "Уля ля",testColors[5])
-//                .setMode(TabLayoutMode.HIDE_TEXT)
-                .setMode(TabLayoutMode.CHANGE_BACKGROUND_COLOR)
-    //            .setMode(TabLayoutMode.HIDE_TEXT| TabLayoutMode.CHANGE_BACKGROUND_COLOR)
+                .addTabItem(R.mipmap.powar2, "***",testColors[1])
+                .addTabItem(R.mipmap.powar2, "***",testColors[2])
+                .addTabItem(R.mipmap.powar2, "***",testColors[3])
+                .addTabItem(R.mipmap.powar2, "***",testColors[4])
+                .addTabItem(R.mipmap.powar2, "***",testColors[5])
+                //.setMode(TabLayoutMode.HIDE_TEXT)
+                //.setMode(TabLayoutMode.CHANGE_BACKGROUND_COLOR)
+                .setMode(TabLayoutMode.HIDE_TEXT| TabLayoutMode.CHANGE_BACKGROUND_COLOR)
                 .build();
 
 
@@ -119,6 +119,8 @@ public class OrderCreationFragment extends Fragment {
                 FrameLayout frlm = (FrameLayout) view.findViewById(R.id.frameLayout);
                 frlm.setBackgroundColor(testColors[index]);
 
+                ((MainActivity) getActivity()).toolbar.setBackgroundColor(testColors[index]);
+                //((MainActivity) getActivity()).toolbar.setElevation(0);
 
             }
 

@@ -7,12 +7,12 @@
     <string name="closeDrawer">close_drawer</string>
 
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_home">Home</string>
-    <string name="nav_photos">Photos</string>
-    <string name="nav_movies">Movies</string>
-    <string name="nav_notifications">Notifications</string>
-    <string name="nav_settings">Settings</string>
-    <string name="nav_about_us">About Us</string>
+    <string name="nav_home">Täze Sargyt</string>
+    <string name="nav_photos">Registarasiýa</string>
+    <string name="nav_movies">Öňki Sargytlar</string>
+    <string name="nav_notifications">Aksiýalar</string>
+    <string name="nav_settings">Sazlamalar</string>
+    <string name="nav_about_us">Biz Barada</string>
 
     <!-- Toolbar titles when navigation menu item is selected -->
     <string-array name="nav_item_activity_titles">

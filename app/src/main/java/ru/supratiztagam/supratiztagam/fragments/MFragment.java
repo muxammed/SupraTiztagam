@@ -36,6 +36,8 @@ public class MFragment extends Fragment
         ((MainActivity) getActivity()).navItemIndex = -1;
 
 
+
+
         artyBir = (Button) v.findViewById(R.id.menubut);
         textView = (TextView) v.findViewById(R.id.menutxt);
 
