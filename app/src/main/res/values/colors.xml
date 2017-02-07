@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#d32f2f</color>
+    <color name="colorPrimaryDark">#c72c2c</color>
+    <color name="colorAccent">#FFFFFF</color>
+
+    <color name="but1">#3ca0b4</color>
+    <color name="but2">#7846be</color>
+    <color name="but3">#78287d</color>
+    <color name="but4">#d76e4b</color>
+    <color name="but5">#3cb271</color>
+    <color name="but6">#d89b39</color>
+
+</resources>

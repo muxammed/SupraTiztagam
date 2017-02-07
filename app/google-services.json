@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1046523687436",
+    "firebase_url": "https://supratiztagam-57f15.firebaseio.com",
+    "project_id": "supratiztagam-57f15",
+    "storage_bucket": "supratiztagam-57f15.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046523687436:android:745947bca9bb1402",
+        "android_client_info": {
+          "package_name": "ru.supratiztagam.supratiztagam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046523687436-0tfj50dit7krfnu0c1o0aikflegrnti4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlRzioa6th5-keW9DhNc1-GqeOkKhxX08"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
