@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "supratizdb";
 
     private static final String TABLE_USERS = "users";
@@ -32,6 +32,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String TABLE_CURLAN = "curlang";
     private static final String KEY_LANG = "lang";
 
+    //TABLE MENU
+
+    private static final String TABLE_MENU = "menu";
+    private static final String KEY_MID = "mid";
+    private static final String KEY_MGRPID = "mgrpid";
+    private static final String KEY_MNAME = "mname";
+    private static final String KEY_MDESC = "mdesc";
+    private static final String KEY_MMSR = "mmsr";
+    private static final String KEY_MPRICE = "mprice";
+
+    //TABLE MVERSION
+    private static final String TABLE_MVERSION = "mversion";
+    private static final String KEY_MVERSION = "mversion";
+
+
 
 
 
@@ -42,6 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
 
 
         String CREATE_USERS_TABLE = "CREATE TABLE " + TABLE_USERS + "("
@@ -55,6 +71,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 + KEY_LANG + " INTEGER )";
         db.execSQL(CREATE_CURLANG_TABLE);
 
+        String CREATE_MVERSION_TABLE = "CREATE TABLE " + TABLE_MVERSION + "("
+                + KEY_MVERSION + " TEXT )";
+        db.execSQL(CREATE_MVERSION_TABLE);
+
+        String CREATE_MENU_TABLE = "CREATE TABLE " + TABLE_MENU + "("
+                + KEY_MID + " INTEGER ," + KEY_MGRPID + " INTEGER,"
+                + KEY_MNAME + " TEXT," + KEY_MDESC + " TEXT,"
+                + KEY_MMSR + " TEXT," + KEY_MPRICE + " FLOAT )";
+        db.execSQL(CREATE_MENU_TABLE);
+
+
 
     }
 
@@ -62,7 +89,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CURLAN);
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MENU);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_MVERSION);
 
         onCreate(db);
     }
@@ -74,6 +102,64 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.insert(TABLE_CURLAN, null, values);
         db.close();
+    }
+
+    //MENU VERSION ACTIONS
+
+    public void addCurVersion(String mversion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_MVERSION, mversion);
+
+        db.insert(TABLE_MVERSION, null, values);
+        db.close();
+    }
+
+    public int getMversionCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_MVERSION;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int sany = cursor.getCount();
+        cursor.close();
+        db.close();
+        return sany;
+    }
+
+    public int updateCurVersion(String mversion) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_MVERSION, mversion);
+
+        return db.update(TABLE_MVERSION, values, null,
+                null);
+    }
+
+    //ENDDD MENU VERSION ACTIONS
+
+
+
+    public int getMenuCount()
+    {
+        String countQuery = "SELECT  * FROM " + TABLE_MENU;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int sany = cursor.getCount();
+        cursor.close();
+
+        return sany;
+    }
+
+    public Cursor getMenuByGrpid(int grpid)
+    {
+        String countQuery = "SELECT  * FROM " + TABLE_MENU + " WHERE " + KEY_MGRPID + " = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        String[] selectionArgs = new String[] {String.valueOf(grpid)};
+        Cursor cursor = db.rawQuery(countQuery, selectionArgs);
+        //int sany = cursor.getCount();
+        //cursor.close();
+
+        return cursor;
     }
 
 

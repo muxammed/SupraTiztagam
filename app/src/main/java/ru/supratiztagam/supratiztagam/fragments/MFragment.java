@@ -2,6 +2,7 @@ package ru.supratiztagam.supratiztagam.fragments;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import ru.supratiztagam.supratiztagam.DatabaseHandler;
 import ru.supratiztagam.supratiztagam.R;
 import ru.supratiztagam.supratiztagam.activities.MainActivity;
 
@@ -19,6 +22,7 @@ public class MFragment extends Fragment
     private Context mContext;
     private Button artyBir;
     TextView textView;
+    DatabaseHandler db;
 
     @Override
     public void onAttach(Context context) {
@@ -73,6 +77,18 @@ public class MFragment extends Fragment
         textView.setText("Gör hany\n\n" +content);
 
         ((MainActivity) getActivity()).toolbartitle.setText("Saylanan " + content);
+
+        db = new DatabaseHandler(getActivity().getApplicationContext());
+
+
+
+        Toast.makeText(getActivity().getApplicationContext(), "menu sany - " + db.getMenuCount(), Toast.LENGTH_LONG).show();
+
+        Cursor mmenu = db.getMenuByGrpid(Integer.valueOf(content));
+
+        Toast.makeText(getActivity().getApplicationContext(), content + " grp ozu we  sany - " + mmenu.getCount(), Toast.LENGTH_LONG).show();
+
+
 
         //textView.setBackgroundColor(0xFFececec);
         return v;

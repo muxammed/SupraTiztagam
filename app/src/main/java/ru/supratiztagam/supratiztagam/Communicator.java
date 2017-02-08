@@ -20,7 +20,7 @@ import ru.supratiztagam.supratiztagam.Events.ServerEvent;
 
 public class Communicator {
     private static  final String TAG = "Communicator";
-    private static final String SERVER_URL = "http://supratiztagam.ru/supra_connect/";
+    private static final String SERVER_URL = "http://192.168.0.3/";
 
     public void loginPost(String username, String password){
 
